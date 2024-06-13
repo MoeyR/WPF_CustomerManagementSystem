@@ -7,4 +7,4 @@ What is WPF_CMS App?
 
 ### Features
 Visuals of WPF_CMS app's screen:
-![Pages: MainPage ](./Images/AppOverview.png)
+![Pages: MainPage ](./WPF_CMS/Images/AppOverview.png)
