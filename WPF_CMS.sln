@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_CMS", "WPF_CMS\WPF_CMS.csproj", "{F69EF826-8A90-4993-872A-C462850147BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_CMS", "WPF_CMS\WPF_CMS.csproj", "{F69EF826-8A90-4993-872A-C462850147BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1EB41AC1-063E-492A-8323-57AFD8B2BCCD}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
