@@ -6,10 +6,18 @@
         xmlns:local="clr-namespace:WPF_CMS" xmlns:controls="clr-namespace:WPF_CMS.Controls" xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:myap="clr-namespace:WPF_CMS.AttachedProperties"
         mc:Ignorable="d"
-        Title="Customer Management System" Height="600" Width="900" Background="Transparent" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
-    <Border Background="white" CornerRadius="30">
+        Title="Customer Management System" 
+        Height="600" 
+        Width="900" 
+        Background="Transparent" 
+        AllowsTransparency="True" 
+        WindowStyle="None" 
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown">
+    <Border Background="white" CornerRadius="15">
         <Grid Margin="0,0,0,0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="15"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
@@ -19,18 +27,30 @@
                 <ColumnDefinition Width="280"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            <!-- Window Control Buttons -->
+            <StackPanel Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" Height="18">
+                <!-- Minimize Button -->
+                <Button
+                    Content="-" 
+                    Style="{StaticResource WinControlBtnStyle}" 
+                    Click="BtnMinimize_Click" />
+                <Button x:Name="BtnClose" 
+                    Content="X" 
+                    Style="{StaticResource WinControlBtnStyle}"
+                    Click="BtnClose_Click" Margin="0,0,12,4" ></Button>
+            </StackPanel>
 
             <!-- Header -->
-            <controls:HeaderControl Grid.ColumnSpan="4"/>
+            <controls:HeaderControl Grid.Row="1" Grid.ColumnSpan="4"/>
 
             <!-- Show Customer List -->
-            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                 <Button Content="Add Customer" Click="ClearSelectedCustomer_Click" Width="202" Margin="10"/>
                 <ListView ItemsSource="{Binding Customers, Mode=OneWay}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay}"/>
             </StackPanel>
 
             <!-- Add and Update Customer -->
-            <MaterialDesign:Card Grid.Row="1" Grid.Column="2" Width="250" Height="440" Margin="10">
+            <MaterialDesign:Card Grid.Row="2" Grid.Column="2" Width="250" Height="440" Margin="10">
                 <StackPanel>
                     <Border Margin="10" CornerRadius="20" Background="#FFFFEEFA">
                         <Image Source="/Images/Cartoon.png" Stretch="Uniform" Height="150"/>
@@ -41,14 +61,14 @@
                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                         MaterialDesign:HintAssist.Hint="Name"
                         Text="{Binding SelectedCustomer.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }"/>
-                   
+
                     <TextBox 
                         Name="IdTextBox" 
                         Margin="10" 
                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
                         MaterialDesign:HintAssist.Hint="Id"
                         Text="{Binding SelectedCustomer.IdNumber, Mode=TwoWay}"/>
-                    
+
                     <TextBox 
                         Name="AddressTextBox" 
                         Margin="10" 
@@ -60,7 +80,7 @@
             </MaterialDesign:Card>
 
             <!-- Add Appointment on Calendar -->
-            <MaterialDesign:Card Grid.Row="1" Grid.Column="3" Width="310" Margin="35 30 35 30">
+            <MaterialDesign:Card Grid.Row="2" Grid.Column="3" Width="310" Margin="35 30 35 30">
                 <StackPanel>
                     <!--<ListView ItemsSource="{Binding Appointments, Mode=TwoWay}" DisplayMemberPath="Time"/>-->
                     <Calendar 
@@ -75,7 +95,7 @@
                     <Button Content="Book" Click="AddAppointment_Click" Width="243" Margin="10"/>
                 </StackPanel>
             </MaterialDesign:Card>
-            
+
         </Grid>
     </Border>
 

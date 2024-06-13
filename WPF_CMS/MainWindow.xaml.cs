@@ -65,5 +65,33 @@ namespace WPF_CMS
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        /// <summary>
+        /// Event for drag and move window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+
+        #region Events in Main Window 
+        private void BtnMinimize_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+
+        private void BtnClose_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+            Application.Current.Shutdown();
+        }
+
+        #endregion
     }
 }
